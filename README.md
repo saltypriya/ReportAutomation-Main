@@ -1,64 +1,65 @@
-# Report Automation Tool
+# 🧾 First Inspection Report Generator
 
-This Python application generates inspection reports from CSV/Excel data and associated photos, with automatic room detection from folder structure.
+A desktop app to **automatically generate First Inspection Reports** with embedded photos and insurance data using an Excel/CSV input.
 
-## Features
+---
 
-- Creates professional Word documents from template
-- Automatically organizes photos by room folders
-- Generates placeholder images when photos are missing
-- Includes header/footer images support
-- Simple GUI interface
+## 🖥️ GUI Instructions (No Coding Needed)
 
-## Requirements
+### ▶️ How to Use
 
-- Python 3.8+
-- Windows (or macOS/Linux with minor adjustments)
+1. **Run the App**  
+   - From source:  
+     ```bash
+     python ReportGenerator.py
+     ```  
+   - Or double-click the `ReportGenerator.exe` (if using the EXE version)
 
-## Installation
-
-1. **Install Python** (if not already installed):
-   - Download from [python.org](https://www.python.org/downloads/)
-   - Check "Add Python to PATH" during installation
-
-2. **Install dependencies**:
-   ```bash
-   pip install pandas python-docx pillow openpyxl tk
-
-How to Use
-Basic Usage
-Prepare your files:
-
-Input data: CSV or Excel file with claim information
-
-Photos: Organize in folders by room name (e.g., kitchen/, bedroom1/)
-
-Optional: Add header.jpg and footer.jpg in main photos folder
-
-Run the application:
-
-bash
-python ReportGenerator.py
-Using the GUI:
-
-Click "Select Input CSV/Excel File" and choose your data file
-
-Click "Select Images Folder" and choose your photos directory
-
-Click "Select Output Folder" for where to save reports
-
-Click "Generate Reports"
+2. **Main Interface Overview**
+   [ First Inspection Report Generator ]
+   Select Input CSV/Excel File [Browse]
+   
+   Select Images Folder [Browse]
+   
+   Select Output Folder [Browse]
+   
+   [ Generate Reports ] (Button)
+   
+   Status: Ready
 
 
-Creating an Executable (Optional)
-To create a standalone .exe file:
+3. **What to Do**
+- 📄 Select your Excel/CSV file that has insured party details.
+- 🖼️ Select a folder that contains:
+  - Room folders (e.g., `bedroom1/`, `kitchen/`)
+  - Optional `header.jpg` and `footer.jpg` images in the root
+- 📂 Choose output folder for saving generated Word reports
 
-Install PyInstaller:
+4. **Click “Generate Reports”**  
+Watch progress in the status bar. Files will be saved as:
+   Output/
+└── FIRST INSPECTION REPORT - CLAIM# PR12345 - SMITH - 123_MAIN_ST.docx
 
-bash
+
+---
+
+## 🛠️ Create an EXE (No Python Needed for Users)
+
+### 🔧 Method 1: PyInstaller (Recommended)
+
+1. Install PyInstaller:
+```bash
 pip install pyinstaller
-Build the executable:
+
+Build the EXE:
 
 bash
+Copy
+Edit
 pyinstaller --onefile --windowed ReportGenerator.py
-The executable will be in the dist/ folder
+Advanced build:
+
+bash
+Copy
+Edit
+pyinstaller --onefile --windowed --icon=app.ico --add-data "assets;assets" ReportGenerator.py
